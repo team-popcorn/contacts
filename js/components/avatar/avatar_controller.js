@@ -63,4 +63,52 @@ angular.module('contactsApp')
 		}
 	});
 
+	ctrl.closeMenus = function() {
+		ctrl.openedMenu = false;
+	};
+
+	ctrl.openMenu = function(index) {
+		ctrl.closeMenus();
+		ctrl.openedMenu = index;
+	};
+
+	ctrl.toggleMenu = function(index) {
+		if (ctrl.openedMenu === index) {
+			ctrl.closeMenus();
+		} else {
+			ctrl.openMenu(index);
+		}
+	};
+
+	$('#selectavatar').click(function () {
+		OC.dialogs.filepicker(
+			t('settings', "Select a profile picture"),
+			function (path) {
+				$('#displayavatar img').hide();
+				$('#displayavatar .avatardiv').addClass('loading');
+				$.ajax({
+					type: "POST",
+					url: OC.generateUrl('/avatar/'),
+					data: { path: path }
+				}).done(avatarResponseHandler)
+					.fail(function(jqXHR) {
+						var msg = jqXHR.statusText + ' (' + jqXHR.status + ')';
+						if (!_.isUndefined(jqXHR.responseJSON) &&
+							!_.isUndefined(jqXHR.responseJSON.data) &&
+							!_.isUndefined(jqXHR.responseJSON.data.message)
+						) {
+							msg = jqXHR.responseJSON.data.message;
+						}
+						avatarResponseHandler({
+							data: {
+								message: msg
+							}
+						});
+					});
+			},
+			false,
+			["image/png", "image/jpeg"]
+		);
+	});
+
 });

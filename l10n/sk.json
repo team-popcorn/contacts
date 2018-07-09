@@ -38,7 +38,7 @@
     "Post office box" : "Poštová adresa",
     "Postal code" : "PSČ",
     "City" : "Mesto",
-    "State or province" : "Štát alebo oblasť",
+    "State or province" : "Kraj alebo oblasť",
     "Country" : "Krajina",
     "Address" : "Adresa",
     "(new group)" : "(nová skupina)",
@@ -89,6 +89,7 @@
     "Work pager" : "Pracovný pager",
     "Social network" : "Sociálna sieť",
     "Relationship" : "Vzťah",
+    "Specify a relationship between you and the entity represented by this vCard." : "Vzťah medzi entitou reprezentovanou touto vCard vizitkou a Vami.",
     "Spouse" : "Partner/ka",
     "Child" : "Dieťa",
     "Mother" : "Matka",
@@ -102,12 +103,16 @@
     "Manager" : "Manažér",
     "Assistant" : "Asistent",
     "Related" : "Súvisiace",
+    "Specify a relationship between another entity and the entity represented by this vCard." : "Vzťah medzi entitou reprezentovanou touto vCard vizitkou a ďalšou entitou.",
     "Contact" : "Kontakt",
+    "Agent" : "Agent",
+    "Emergency" : "Núdzový kontakt",
     "Co-worker" : "Spolupracovník",
     "Gender" : "Pohlavie",
     "Female" : "Žena",
     "Male" : "Muž",
     "Details" : "Podrobnosti",
+    "A contacts app for Nextcloud" : "Apka kontaktov pre Nextcloud",
     "Settings" : "Nastavenia"
-},"pluralForm" :"nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;"
+},"pluralForm" :"nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);"
 }

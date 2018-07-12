@@ -9,14 +9,12 @@
 			outside-if-not="openMenuButton,popovermenu">
 			<ul>
 				<li>
-					<!--<a href="#" class="inlineblock button icon-upload svg" id="uploadavatarbutton" >
-						<span>Upload file</span>
-					</a>-->
-					<<label for="uploadavatar" id="uploadavatarbutton" title="Upload new">
-						<span class="inlineblock icon-upload"></span>
-						<span>Upload file</span>
-					</label>
-					<input type="file" name="files[]" id="uploadavatar" class="hiddenuploadfield">
+					<a class="inlineblock icon-upload">
+						<label for="uploadavatar" id="uploadavatarbutton" title="Upload new">
+							<span>Upload</span>
+						</label>
+						<input type="file" name="files[]" id="uploadavatar" class="hiddenuploadfield">
+					</a>
 				</li>
 				<li>
 					<a href="#" class="inlineblock button icon-folder svg" id="selectavatar">
@@ -27,13 +25,6 @@
 
 		</div>
 	</div>
-
-<!--
-	<input type="file" id="avatar-upload" class="hidden" accept="image/*" />
-	<label for="uploadavatar" class="inlineblock button icon-upload svg" id="uploadavatarbutton" title="Upload new"></label>
-	<div class="inlineblock button icon-folder svg" id="selectavatar" title="Select from Files"></div>
--->
-
 
 	<div class="icon-delete-white" ng-show="contact.photo()!==undefined" ng-click="ctrl.removePhoto()"
 		tooltip-placement="top" uib-tooltip="{{ctrl.t.deletePhoto}}" tooltip-append-to-body="true"></div>

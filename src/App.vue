@@ -20,6 +20,7 @@
  -
  -->
 
+// ☞ 1aea0c9b-9052-4d21-ba6b-c4c9eaefc171
 <template>
 	<router-view />
 </template>

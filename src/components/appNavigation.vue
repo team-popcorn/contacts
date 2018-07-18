@@ -20,36 +20,17 @@
   -
   -->
 
+// ☞ 981d9f05-07fd-4125-a110-f4af6726d7f4
 <template>
-	<div id="app-navigation" :class="{'icon-loading': menu.loading}">
-		<div v-if="menu.new" class="app-navigation-new">
-			<button :id="menu.new.id" :class="menu.new.icon" type="button"
-				@click="menu.new.action">{{ menu.new.text }}</button>
-		</div>
-		<ul :id="menu.id">
-			<navigation-item v-for="item in menu.items" :item="item" :key="item.key" />
-		</ul>
-		<div v-if="!!$slots['settings-content']" id="app-settings">
-			<div id="app-settings-header">
-				<button class="settings-button"
-					data-apps-slide-toggle="#app-settings-content"
-				>{{ t('settings', 'Settings') }}</button>
-			</div>
-			<div id="app-settings-content">
-				<slot name="settings-content"/>
-			</div>
+	<div id="app-navigation">
+		<div class="app-navigation-new">
+			<button type="button">New contact</button>
 		</div>
 	</div>
 </template>
 
 <script>
-import navigationItem from './appNavigation/navigationItem'
-
 export default {
-	name: 'AppNavigation',
-	components: {
-		navigationItem
-	},
-	props: ['menu']
+	name: 'AppNavigation'
 }
 </script>

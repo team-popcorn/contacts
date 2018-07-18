@@ -1,0 +1,1017 @@
+.contact-details-wrapper {
+  position: relative;
+  background: #fff;
+  min-height: 100%; }
+
+.wrapper-show {
+  z-index: 201; }
+
+@media only screen and (max-width: 768px) {
+  .wrapper-show:not(.mobile-show) {
+    display: none; } }
+
+.contactdetails__header {
+  height: 100px;
+  padding-left: 44px;
+  display: flex;
+  font-weight: bold;
+  align-items: center; }
+
+.contactdetails__header #details-contact-infos {
+  width: 80%;
+  margin: 2px 6px 0;
+  flex-grow: 1; }
+
+.contactdetails__header h2 {
+  margin: 0; }
+
+.contactdetails__header #details-org-container {
+  display: flex;
+  flex-wrap: wrap; }
+
+.contactdetails__header input[type=text]:active {
+  background: transparent !important;
+  /* remove :active effect */ }
+
+.contactdetails__header .contactdetails__name,
+.contactdetails__header .contactdetails__org,
+.contactdetails__header .contactdetails__title {
+  font-size: inherit;
+  /* Override focus, active & hover! */
+  color: #fff !important;
+  /* No vars used on purpose since we use custom BGs */
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  background: transparent;
+  border: none;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 100%;
+  margin: 0;
+  padding: 4px 5px; }
+
+.contactdetails__header .contactdetails__org,
+.contactdetails__header .contactdetails__title {
+  max-width: 50%;
+  min-width: 150px; }
+
+.contactdetails__header .contactdetails__name {
+  width: 100%; }
+
+.contactdetails__header #details-actions div.icon-more-white {
+  cursor: pointer;
+  padding: 14px;
+  width: 44px;
+  height: 44px; }
+
+.contactdetails__header #contact-failed-save {
+  animation: pulse 1.5s infinite;
+  border-radius: 50%; }
+
+/* fix placeholder color */
+.contactdetails__header .contactdetails__name::-webkit-input-placeholder,
+.contactdetails__header .contactdetails__org::-webkit-input-placeholder,
+.contactdetails__header .contactdetails__title::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #fff;
+  /* No vars used on purpose since we use custom BGs */
+  opacity: .8; }
+
+.contactdetails__header .contactdetails__name::-moz-placeholder,
+.contactdetails__header .contactdetails__org::-moz-placeholder,
+.contactdetails__header .contactdetails__title::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #fff;
+  /* No vars used on purpose since we use custom BGs */
+  opacity: .8; }
+
+.contactdetails__header .contactdetails__name:-ms-input-placeholder,
+.contactdetails__header .contactdetails__org:-ms-input-placeholder,
+.contactdetails__header .contactdetails__title:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff;
+  /* No vars used on purpose since we use custom BGs */
+  opacity: .8; }
+
+.contactdetails__header .contactdetails__name:placeholder-shown,
+.contactdetails__header .contactdetails__org:placeholder-shown,
+.contactdetails__header .contactdetails__title:placeholder-shown {
+  /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+  color: #fff;
+  /* No vars used on purpose since we use custom BGs */
+  opacity: .8; }
+
+avatar {
+  position: relative;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0; }
+
+.contactdetails__logo {
+  height: 75px;
+  width: 75px;
+  object-fit: cover;
+  background-color: transparent;
+  margin: 0;
+  cursor: pointer; }
+
+.avatar-options {
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+.avatar-options > [class^='icon-'] {
+  display: none;
+  opacity: 0.5;
+  cursor: pointer;
+  min-width: 20px;
+  min-height: 20px; }
+
+.avatar-options:hover > [class^='icon-'] {
+  opacity: 0.6; }
+
+.avatar-options > [class^='icon-']:hover {
+  opacity: 0.8; }
+
+avatar.avatar--missing .avatar-options {
+  display: flex;
+  border-radius: 50%; }
+
+avatar:not(.maximized).avatar--missing .avatar-options .icon-upload-white {
+  display: block;
+  width: 100%;
+  height: 100%; }
+
+avatar.maximized {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 0;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  z-index: 200;
+  padding-top: 65px;
+  /* Nextcloud header */ }
+
+avatar.maximized img {
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  max-height: calc(100% - 40px);
+  max-width: 100%;
+  align-self: center;
+  margin-bottom: 40px; }
+
+avatar.maximized .avatar-options {
+  height: 40px;
+  position: absolute;
+  top: calc(100% - 40px);
+  left: 0;
+  display: flex;
+  opacity: 1;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+
+avatar.maximized .avatar-options > [class^='icon-'] {
+  min-width: 25%;
+  display: block; }
+
+.contactdetails__header + section {
+  padding: 20px 20px 100px; }
+
+/* GRID */
+section {
+  display: grid;
+  /* unquote is a strange hack to avoid removal of the comma by the scss compiler */
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  grid-column-gap: 20px; }
+
+/* General details item styles */
+contactdetails select:disabled, contactdetails button:disabled, contactdetails input:disabled, contactdetails textarea:disabled {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  opacity: 1 !important;
+  color: #545454 !important; }
+
+contactdetails detailsitem > select:disabled {
+  background-image: none !important; }
+  contactdetails detailsitem > select:disabled:first-child {
+    opacity: 0.5 !important;
+    color: inherit !important; }
+
+propertygroup {
+  display: block;
+  /* GRID SETTINGS */
+  /* we only supports 10 props of the same type */ }
+  propertygroup:not(.property-adr) {
+    /* adr detailsitem already have bottom padding */
+    padding-bottom: 40px; }
+  propertygroup .propertyGroup__title {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: calc(40px / 4);
+    margin: 0;
+    margin-left: 68px;
+    opacity: .6; }
+    propertygroup .propertyGroup__title i {
+      display: block;
+      vertical-align: middle;
+      background-size: 16px 16px;
+      margin-right: 8px;
+      opacity: .5; }
+    propertygroup .propertyGroup__title #info {
+      cursor: pointer;
+      margin-left: 8px; }
+  propertygroup.grid-span-1 {
+    /* default unit + title + bottom padding */
+    grid-row-start: span 3; }
+  propertygroup.grid-span-2 {
+    /* default unit + title + bottom padding */
+    grid-row-start: span 4; }
+  propertygroup.grid-span-3 {
+    /* default unit + title + bottom padding */
+    grid-row-start: span 5; }
+  propertygroup.grid-span-4 {
+    /* default unit + title + bottom padding */
+    grid-row-start: span 6; }
+  propertygroup.grid-span-5 {
+    /* default unit + title + bottom padding */
+    grid-row-start: span 7; }
+  propertygroup.grid-span-6 {
+    /* default unit + title + bottom padding */
+    grid-row-start: span 8; }
+  propertygroup.grid-span-7 {
+    /* default unit + title + bottom padding */
+    grid-row-start: span 9; }
+  propertygroup.grid-span-8 {
+    /* default unit + title + bottom padding */
+    grid-row-start: span 10; }
+  propertygroup.grid-span-9 {
+    /* default unit + title + bottom padding */
+    grid-row-start: span 11; }
+  propertygroup.grid-span-10 {
+    /* default unit + title + bottom padding */
+    grid-row-start: span 12; }
+  propertygroup.property-adr {
+    /* we only supports 10 props of the same type */ }
+    propertygroup.property-adr.grid-span-1 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 10; }
+    propertygroup.property-adr.grid-span-2 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 18; }
+    propertygroup.property-adr.grid-span-3 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 26; }
+    propertygroup.property-adr.grid-span-4 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 34; }
+    propertygroup.property-adr.grid-span-5 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 42; }
+    propertygroup.property-adr.grid-span-6 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 50; }
+    propertygroup.property-adr.grid-span-7 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 58; }
+    propertygroup.property-adr.grid-span-8 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 66; }
+    propertygroup.property-adr.grid-span-9 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 74; }
+    propertygroup.property-adr.grid-span-10 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 82; }
+  propertygroup.property-n {
+    /* we only supports 10 props of the same type */ }
+    propertygroup.property-n.grid-span-1 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 9; }
+    propertygroup.property-n.grid-span-2 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 16; }
+    propertygroup.property-n.grid-span-3 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 23; }
+    propertygroup.property-n.grid-span-4 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 30; }
+    propertygroup.property-n.grid-span-5 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 37; }
+    propertygroup.property-n.grid-span-6 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 44; }
+    propertygroup.property-n.grid-span-7 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 51; }
+    propertygroup.property-n.grid-span-8 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 58; }
+    propertygroup.property-n.grid-span-9 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 65; }
+    propertygroup.property-n.grid-span-10 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 72; }
+  propertygroup.property-note {
+    /* we only supports 10 props of the same type */ }
+    propertygroup.property-note.grid-span-1 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 7; }
+    propertygroup.property-note.grid-span-2 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 12; }
+    propertygroup.property-note.grid-span-3 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 17; }
+    propertygroup.property-note.grid-span-4 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 22; }
+    propertygroup.property-note.grid-span-5 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 27; }
+    propertygroup.property-note.grid-span-6 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 32; }
+    propertygroup.property-note.grid-span-7 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 37; }
+    propertygroup.property-note.grid-span-8 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 42; }
+    propertygroup.property-note.grid-span-9 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 47; }
+    propertygroup.property-note.grid-span-10 {
+      /* default unit + title + bottom padding */
+      grid-row-start: span 52; }
+
+detailsitem input[type='tel'],
+detailsitem input[type='email'],
+detailsitem input[type='text'],
+detailsitem input[type='url'],
+detailsitem textarea,
+.select-addressbook select,
+.add-field {
+  width: 245px;
+  flex-grow: 1;
+  margin: 3px;
+  height: 34px;
+  padding: 7px; }
+
+.add-field {
+  margin-left: 106px; }
+
+detailsitem label,
+.select-addressbook label {
+  margin: 3px;
+  margin-left: 0;
+  display: inline-block;
+  width: 100px;
+  height: 34px;
+  padding: 7px 0;
+  text-align: right;
+  opacity: .5;
+  white-space: nowrap;
+  overflow: hidden;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle; }
+
+detailsitem {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 380px;
+  /* Failed props */ }
+  detailsitem > div {
+    display: inline-flex; }
+  detailsitem select {
+    width: 100px;
+    height: 34px;
+    padding: 7px;
+    margin: 3px;
+    margin-left: 0;
+    border: none;
+    text-align: right;
+    text-align-last: right;
+    opacity: .5;
+    color: #000;
+    outline: none; }
+    detailsitem select:hover, detailsitem select:focus, detailsitem select:active {
+      opacity: 1; }
+  detailsitem .icon-delete {
+    position: relative;
+    vertical-align: top;
+    padding: 16px 10px;
+    background-color: transparent;
+    border: none;
+    opacity: 0; }
+  detailsitem input:hover + .icon-delete,
+  detailsitem input:focus + .icon-delete,
+  detailsitem input:active + .icon-delete,
+  detailsitem select:hover + .icon-delete,
+  detailsitem select:focus + .icon-delete,
+  detailsitem select:active + .icon-delete,
+  detailsitem:hover .icon-delete {
+    opacity: .2; }
+  detailsitem .icon-delete:hover,
+  detailsitem .icon-delete:focus,
+  detailsitem .icon-delete:active {
+    opacity: 1; }
+  detailsitem .item-action {
+    position: absolute;
+    padding: 10px 5px;
+    opacity: .5;
+    right: 30px; }
+    detailsitem .item-action ~ input {
+      padding-right: 30px;
+      text-overflow: ellipsis; }
+    detailsitem .item-action i {
+      display: block;
+      height: 20px;
+      width: 20px; }
+  detailsitem.details-item-adr, detailsitem.details-item-n {
+    padding-bottom: 40px; }
+    detailsitem.details-item-adr .icon-delete, detailsitem.details-item-n .icon-delete {
+      vertical-align: middle;
+      left: 251px; }
+  detailsitem.details-item-note label {
+    vertical-align: top; }
+  detailsitem.failed {
+    box-shadow: inset 2px 0 #e9322d; }
+  detailsitem textarea {
+    height: calc(34px + (40px * 4)); }
+
+avatar .icon-error {
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+
+avatar:not(.maximized) .icon-error + img {
+  opacity: 0.5; }
+
+/* Prevent delete for last adr/mail/tel item */
+.last-details > detailsitem.details-item-adr .icon-delete,
+.last-details > detailsitem.details-item-email .icon-delete,
+.last-details > detailsitem.details-item-tel .icon-delete {
+  display: none; }
+
+/* SELECT2 styling */
+detailsitem .select2-container {
+  width: 245px; }
+
+/* Fix for #81 */
+.select2-container-multi .select2-choices .select2-search-choice {
+  padding-right: 20px; }
+
+.select2-container.select2-container-multi .select2-choices span {
+  display: flex;
+  flex-wrap: wrap; }
+
+.select2-container-multi .select2-choices .select2-search-choice .select2-search-choice-close {
+  display: block !important;
+  right: 4px;
+  left: auto;
+  top: 7px; }
+
+/* Fix disabled select2 state */
+detailsitem .select2-container[disabled] .select2-choices {
+  border-color: transparent;
+  min-height: 100%;
+  background-color: transparent !important; }
+
+.contacts-list {
+  min-height: 100%; }
+
+contactlist .tooltip {
+  max-width: 75%; }
+
+.app-content-list-item-failed {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  margin-top: -15px;
+  opacity: 0.2;
+  width: 30px;
+  height: 30px;
+  z-index: 50; }
+
+.app-content-list-item-failed:hover {
+  opacity: 0.5; }
+
+.app-content-list-item-failed ~ .app-content-list-item-line-one,
+.app-content-list-item-failed ~ .app-content-list-item-line-two {
+  padding-right: 50px; }
+
+.contact__icon {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 10px;
+  color: white;
+  text-align: center;
+  font-size: 1.5em;
+  text-transform: capitalize;
+  object-fit: cover; }
+
+.icon-group {
+  background-image: url("../img/group.svg"); }
+
+/* Mobile width < 768px */
+@media only screen and (max-width: 768px) {
+  .contacts-list:not(.mobile-show) {
+    display: none; }
+  #app-navigation-toggle.showdetails {
+    transform: translate(-50px, 0); }
+  #app-navigation-toggle-back {
+    position: fixed;
+    display: inline-block !important;
+    top: 45px;
+    left: 0;
+    width: 44px;
+    height: 44px;
+    z-index: 149;
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    opacity: .6;
+    transform: rotate(90deg); }
+  /* end of media query */ }
+
+/* STABLE12 FIXES. TO BE DROPPED FOR MIN VERSION 13 */
+#app-content-wrapper {
+  display: flex;
+  position: relative;
+  align-items: start;
+  height: 100%;
+  width: 100%; }
+  #app-content-wrapper .app-content-list,
+  #app-content-wrapper .app-content-detail {
+    min-height: 100%;
+    max-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto; }
+
+.app-content-list {
+  border-right: 1px solid #ebebeb;
+  display: flex;
+  flex-direction: column;
+  transition: transform 250ms ease-in-out;
+  min-width: 250px;
+  max-width: 350px;
+  flex: 2 2 300px;
+  /* Default item */ }
+  .app-content-list .app-content-list-item {
+    position: relative;
+    height: 68px;
+    border-top: 1px solid #ebebeb;
+    cursor: pointer;
+    padding: 10px 7px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 0 0 auto;
+    /* Icon fixes */ }
+    .app-content-list .app-content-list-item > [class^='icon-'],
+    .app-content-list .app-content-list-item > [class*=' icon-'],
+    .app-content-list .app-content-list-item > .app-content-list-item-menu > [class^='icon-'],
+    .app-content-list .app-content-list-item > .app-content-list-item-menu > [class*=' icon-'] {
+      order: 4;
+      width: 24px;
+      height: 24px;
+      margin: -10px;
+      padding: 22px;
+      opacity: .3;
+      cursor: pointer; }
+      .app-content-list .app-content-list-item > [class^='icon-']:hover, .app-content-list .app-content-list-item > [class^='icon-']:focus,
+      .app-content-list .app-content-list-item > [class*=' icon-']:hover,
+      .app-content-list .app-content-list-item > [class*=' icon-']:focus,
+      .app-content-list .app-content-list-item > .app-content-list-item-menu > [class^='icon-']:hover,
+      .app-content-list .app-content-list-item > .app-content-list-item-menu > [class^='icon-']:focus,
+      .app-content-list .app-content-list-item > .app-content-list-item-menu > [class*=' icon-']:hover,
+      .app-content-list .app-content-list-item > .app-content-list-item-menu > [class*=' icon-']:focus {
+        opacity: .7; }
+      .app-content-list .app-content-list-item > [class^='icon-'][class^='icon-star'], .app-content-list .app-content-list-item > [class^='icon-'][class*=' icon-star'],
+      .app-content-list .app-content-list-item > [class*=' icon-'][class^='icon-star'],
+      .app-content-list .app-content-list-item > [class*=' icon-'][class*=' icon-star'],
+      .app-content-list .app-content-list-item > .app-content-list-item-menu > [class^='icon-'][class^='icon-star'],
+      .app-content-list .app-content-list-item > .app-content-list-item-menu > [class^='icon-'][class*=' icon-star'],
+      .app-content-list .app-content-list-item > .app-content-list-item-menu > [class*=' icon-'][class^='icon-star'],
+      .app-content-list .app-content-list-item > .app-content-list-item-menu > [class*=' icon-'][class*=' icon-star'] {
+        opacity: .7; }
+        .app-content-list .app-content-list-item > [class^='icon-'][class^='icon-star']:hover, .app-content-list .app-content-list-item > [class^='icon-'][class^='icon-star']:focus, .app-content-list .app-content-list-item > [class^='icon-'][class*=' icon-star']:hover, .app-content-list .app-content-list-item > [class^='icon-'][class*=' icon-star']:focus,
+        .app-content-list .app-content-list-item > [class*=' icon-'][class^='icon-star']:hover,
+        .app-content-list .app-content-list-item > [class*=' icon-'][class^='icon-star']:focus,
+        .app-content-list .app-content-list-item > [class*=' icon-'][class*=' icon-star']:hover,
+        .app-content-list .app-content-list-item > [class*=' icon-'][class*=' icon-star']:focus,
+        .app-content-list .app-content-list-item > .app-content-list-item-menu > [class^='icon-'][class^='icon-star']:hover,
+        .app-content-list .app-content-list-item > .app-content-list-item-menu > [class^='icon-'][class^='icon-star']:focus,
+        .app-content-list .app-content-list-item > .app-content-list-item-menu > [class^='icon-'][class*=' icon-star']:hover,
+        .app-content-list .app-content-list-item > .app-content-list-item-menu > [class^='icon-'][class*=' icon-star']:focus,
+        .app-content-list .app-content-list-item > .app-content-list-item-menu > [class*=' icon-'][class^='icon-star']:hover,
+        .app-content-list .app-content-list-item > .app-content-list-item-menu > [class*=' icon-'][class^='icon-star']:focus,
+        .app-content-list .app-content-list-item > .app-content-list-item-menu > [class*=' icon-'][class*=' icon-star']:hover,
+        .app-content-list .app-content-list-item > .app-content-list-item-menu > [class*=' icon-'][class*=' icon-star']:focus {
+          opacity: 1; }
+      .app-content-list .app-content-list-item > [class^='icon-'].icon-starred,
+      .app-content-list .app-content-list-item > [class*=' icon-'].icon-starred,
+      .app-content-list .app-content-list-item > .app-content-list-item-menu > [class^='icon-'].icon-starred,
+      .app-content-list .app-content-list-item > .app-content-list-item-menu > [class*=' icon-'].icon-starred {
+        opacity: 1; }
+    .app-content-list .app-content-list-item:hover, .app-content-list .app-content-list-item:focus, .app-content-list .app-content-list-item.active {
+      background-color: #f0f0f0; }
+    .app-content-list .app-content-list-item .app-content-list-item-checkbox.checkbox + label,
+    .app-content-list .app-content-list-item .app-content-list-item-star {
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      display: flex;
+      z-index: 50; }
+      .app-content-list .app-content-list-item .app-content-list-item-checkbox.checkbox + label + .app-content-list-item-icon,
+      .app-content-list .app-content-list-item .app-content-list-item-star + .app-content-list-item-icon {
+        opacity: .7; }
+    .app-content-list .app-content-list-item .app-content-list-item-checkbox.checkbox + label {
+      top: 14px;
+      left: 7px;
+      /* Hide the star, priority to the checkbox */ }
+      .app-content-list .app-content-list-item .app-content-list-item-checkbox.checkbox + label::before {
+        margin: 0; }
+      .app-content-list .app-content-list-item .app-content-list-item-checkbox.checkbox + label ~ .app-content-list-item-star {
+        display: none; }
+    .app-content-list .app-content-list-item .app-content-list-item-star {
+      top: 10px;
+      left: 32px;
+      background-size: 16px;
+      height: 20px;
+      width: 20px;
+      margin: 0;
+      padding: 0; }
+    .app-content-list .app-content-list-item .app-content-list-item-icon {
+      position: absolute;
+      display: inline-block;
+      height: 40px;
+      width: 40px;
+      line-height: 40px;
+      border-radius: 50%;
+      vertical-align: middle;
+      margin-right: 10px;
+      color: #fff;
+      text-align: center;
+      font-size: 1.5em;
+      text-transform: capitalize;
+      object-fit: cover;
+      user-select: none;
+      cursor: pointer; }
+    .app-content-list .app-content-list-item .app-content-list-item-line-one,
+    .app-content-list .app-content-list-item .app-content-list-item-line-two {
+      display: block;
+      padding-left: 50px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      order: 1;
+      flex: 1 1 0;
+      padding-right: 10px;
+      cursor: pointer; }
+    .app-content-list .app-content-list-item .app-content-list-item-line-two {
+      opacity: .5;
+      order: 3;
+      flex: 1 0 calc(100% - 24px); }
+    .app-content-list .app-content-list-item .app-content-list-item-details {
+      order: 2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100px;
+      opacity: .5;
+      font-size: 80%;
+      user-select: none; }
+    .app-content-list .app-content-list-item .app-content-list-item-menu {
+      order: 4;
+      position: relative; }
+      .app-content-list .app-content-list-item .app-content-list-item-menu .popovermenu {
+        margin: 0;
+        right: -5px; }
+
+/* App content */
+.app-content-detail {
+  /* grow full width */
+  flex-grow: 1; }
+  .app-content-detail #app-navigation-toggle-back {
+    display: none; }
+
+#app-navigation {
+  position: relative; }
+
+#app-navigation > ul {
+  height: calc(100% - 68px); }
+
+#app-navigation .app-navigation-entry-utils .app-navigation-entry-utils-counter {
+  padding: 0 12px 0 0; }
+
+/* Contacts List */
+#new-contact-button {
+  margin: 14px auto;
+  /* to have the same height than a contact */
+  width: calc(100% - 20px) !important;
+  text-align: left;
+  background-position: 10px center;
+  padding: 10px;
+  padding-left: 34px;
+  display: block; }
+
+.settings-section {
+  display: block; }
+
+.addressBookList form {
+  width: 100%;
+  display: inline-flex; }
+
+.addressBookList form input.ng-invalid-pattern {
+  border-color: #e9322d !important; }
+
+ul.addressBookList > li {
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; }
+
+ul.addressBookList > li.newAddressBookContainer {
+  position: relative; }
+
+ul.addressBookList > li.newAddressBookContainer .tooltip {
+  width: 175px; }
+
+ul.addressBook-share-list {
+  margin-top: 8px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column; }
+  ul.addressBook-share-list li {
+    padding: 0 5px;
+    display: inline-flex;
+    align-items: center; }
+    ul.addressBook-share-list li .icon {
+      margin-right: 5px;
+      opacity: .2; }
+    ul.addressBook-share-list li .utils {
+      display: flex; }
+      ul.addressBook-share-list li .utils .checkbox + label {
+        padding: 0 !important; }
+
+/* override core apps css */
+#app-navigation ul.addressBookList > li span.utils {
+  position: relative;
+  padding: 0;
+  flex-shrink: 0;
+  height: 20px; }
+
+ul.addressBookList li .utils .popovermenu {
+  margin-right: -5px; }
+
+#app-navigation ul.addressBookList li .utils .popovermenu li > button {
+  width: 100%; }
+
+ul.addressBookList li .action {
+  opacity: 0.3;
+  display: block; }
+  ul.addressBookList li .action:hover {
+    opacity: 0.5; }
+  ul.addressBookList li .action span {
+    cursor: pointer; }
+
+ul.addressBookList li .action > span {
+  display: inline-block;
+  width: 24px;
+  height: 20px; }
+
+ul.addressBookList li .action > a {
+  padding: 10px 14px; }
+
+addressBookList input[type='submit'].inline-button,
+addressBookList input[type='button'].inline-button {
+  position: absolute;
+  right: 0;
+  padding: 6px 15px;
+  background-color: transparent;
+  border: none;
+  opacity: .5;
+  margin-right: 0;
+  cursor: pointer; }
+
+ul.addressBookList li[addressbook] > span.addressBookName {
+  width: calc(100% - 52px);
+  /* -actions width */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-left: 7px; }
+  ul.addressBookList li[addressbook] > span.addressBookName.disabled {
+    opacity: 0.3; }
+
+ul.addressBookList li[addressbook] > .addressBookShares {
+  width: 100%; }
+
+li.addressBook-share-item span.shareeIdentifier,
+li.calendar-share-item span.shareeIdentifier {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: inline-block;
+  vertical-align: top;
+  opacity: 0.5; }
+
+div.addressBookShares ul.dropdown-menu {
+  border: 1px solid #d1d1d1;
+  border-radius: 0 0 3px 3px;
+  max-height: 200px;
+  margin-top: -2px;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  z-index: 500; }
+
+div.addressBookShares ul.dropdown-menu li > a {
+  height: 30px !important;
+  min-height: 30px !important;
+  line-height: 30px !important; }
+
+ul.dropdown-menu li {
+  width: 100%;
+  padding: 3px 7px 4px;
+  cursor: pointer; }
+
+ul.dropdown-menu li.active {
+  background: #f0f0f0; }
+
+div.app-contacts span.utils {
+  padding: 0 !important;
+  float: right;
+  position: relative !important;
+  display: inline-flex; }
+
+.addressBookUrlContainer {
+  width: 100%;
+  position: relative; }
+
+input.renameAddressBookInput,
+input.newAddressBookInput,
+input.shareeInput,
+input.addressBookUrl {
+  width: 100% !important;
+  margin-right: 0;
+  padding-right: 30px;
+  text-overflow: ellipsis; }
+
+.select2-drop .select2-search input {
+  width: 100% !important;
+  margin-right: 0; }
+
+/* Contact import */
+#app-settings-content #upload.button {
+  width: 100%;
+  padding: 7px 10px;
+  padding-left: 34px;
+  background-position: 10px center;
+  text-align: left;
+  margin: 0;
+  display: block;
+  margin-bottom: 0;
+  border-radius: 3px 3px 0 0; }
+
+#app-settings-content #upload.button::after {
+  left: 17px;
+  /* half the padding */ }
+
+#app-settings-content #upload.button.no-select {
+  border-radius: 3px; }
+
+contactimport {
+  margin-bottom: 3px; }
+
+contactimport .select2-container {
+  margin-top: 0;
+  width: 100%; }
+
+contactimport .select2-container::after {
+  left: 15px; }
+
+contactimport .select2-container .select2-choice {
+  height: 100%;
+  line-height: 31px;
+  border-radius: 0 0 3px 3px;
+  border-top: none !important; }
+
+contactimport .select2-drop-active {
+  border-top: 1px solid #d1d1d1;
+  box-shadow: 0 -1px 5px rgba(255, 255, 255, 0.15);
+  border-radius: 3px 3px 0 0;
+  margin-top: initial; }
+
+contactimport .ui-select-offscreen {
+  display: none; }
+
+contactimport .ui-select-search-hidden {
+  display: none; }
+
+contactimport input[type='search']::-webkit-search-cancel-button {
+  -webkit-appearance: none; }
+
+/* Import screen */
+#import-sidebar {
+  position: absolute;
+  width: 250px;
+  height: 100%;
+  z-index: 500;
+  background: rgba(255, 255, 255, 0.6); }
+
+#importscreen-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  background: #fff;
+  z-index: 500; }
+
+#importscreen-content {
+  width: 300px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; }
+
+#importscreen-title {
+  flex-basis: 100%;
+  text-align: center; }
+
+#importscreen-percent {
+  opacity: 0.5; }
+
+#importscreen-user {
+  opacity: 0.5;
+  padding-top: 5px; }
+
+/* Copy nextcloud quota bar */
+#importscreen-progress {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0 none;
+  background-color: #e6e6e6;
+  border-radius: 3px;
+  flex-basis: 100%;
+  height: 5px; }
+
+#importscreen-progress::-webkit-progress-bar {
+  background: transparent; }
+
+#importscreen-progress::-moz-progress-bar {
+  border-radius: 3px;
+  background: #0082c9;
+  transition: 500ms all ease-in-out; }
+
+#importscreen-progress::-webkit-progress-value {
+  border-radius: 3px;
+  background: #0082c9;
+  transition: 500ms all ease-in-out; }
+
+#importscreen-sidebar-block {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 500;
+  opacity: 0.5; }
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(50, 50, 50, 0.4); }
+  70% {
+    box-shadow: 0 0 0 15px rgba(50, 50, 50, 0); }
+  100% {
+    box-shadow: 0 0 0 0 rgba(50, 50, 50, 0); } }

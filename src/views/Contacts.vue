@@ -20,11 +20,20 @@
   -
   -->
 
+// ☞ 6bf472ab-469e-4ecf-a351-44d7353e99e7
 <template>
 	<div id="content" class="app-contacts">
-		Test
+		<app-navigation />
 	</div>
 </template>
 
 <script>
+import AppNavigation from '../components/appNavigation'
+
+export default {
+	name: 'Contacts',
+	components: {
+		AppNavigation
+	}
+}
 </script>

@@ -170,10 +170,25 @@
 // Add address book
 
 .new-address-book {
-	input[type='text'] + .icon-confirm, input[type='password'] + .icon-confirm, input[type='email'] + .icon-confirm {
-		opacity: 0.5;
-	}
 	.new-address-book-input {
 		border-color: var(--color-border-dark);
+	}
+	.new-address-book-submit {
+		// opacity: 0.5;
+		&:hover,
+		&:focus,
+		&:active {
+			border-color: var(--color-primary-element) !important;
+			border-left-color: transparent !important;
+			/* above previous input */
+			z-index: 2;
+
+			+ .new-address-book-input {
+				border-color: var(--color-primary-element) !important;
+				border-left-color: transparent !important;
+				/* above previous input */
+				z-index: 2;
+			}
+		}
 	}
 }

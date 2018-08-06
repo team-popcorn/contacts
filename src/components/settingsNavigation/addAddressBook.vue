@@ -31,7 +31,7 @@
 			tooltip-trigger="none"
 			tooltip-placement="top"
 			uib-tooltip="Only these special characters are allowed: -_.!?#|()">
-		<input type="submit" value="" class="newAddressBookSubmit inline-button icon-confirm action pull-right">
+		<input type="submit" value="" class="new-address-book-submit inline-button icon-confirm action pull-right">
 	</form>
 </template>
 
